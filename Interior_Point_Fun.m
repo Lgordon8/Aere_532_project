@@ -53,7 +53,7 @@ D_plus  = A_plus.*u_plus+B_plus.*v_plus-C_plus.*x_plus;        %RHS of +characte
 D_minus = A_minus.*u_minus+B_minus.*v_minus-C_minus.*x_minus;  %RHS of -characteristic compatability eq after rearrangement
 
 F=[-lambda_plus 1 0 0 ; -lambda_minus 1 0 0 ; -C_plus 0 A_plus B_plus ; -C_minus 0 A_minus B_minus ]; %matrix of coefficients for characteristic and compatibility finite difference equations
-G=[y_plus-lambda_plus*x_plus; y_minus-lambda_minus*x_minus ; D_plus ; D_minus]                      :  %column vector containing constants each of the finite difference equations are equal to
+G=[y_plus-lambda_plus*x_plus; y_minus-lambda_minus*x_minus ; D_plus ; D_minus]                      ;  %column vector containing constants each of the finite difference equations are equal to
 F_in=inv(F);
 x_y_u_v=F_in*G;
 
