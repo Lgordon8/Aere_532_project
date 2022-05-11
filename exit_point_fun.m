@@ -1,4 +1,4 @@
-function [x0,y0,u0,v0] = exit_point_fun(plus_in, minus_in, Pressure, Temperature, R, gamma, omega)
+function [x0,y0,u0,v0] = exit_point_fun(plus_in, minus_in, Pressure, Temperature, R, gamma, omega, Patm)
 %This function calculates the compatibility equations of the Exit
 %   X_pos and x_in are the inputs form the characteristic lines with a
 %   posistive and negative slope respectifully
@@ -36,6 +36,18 @@ theta_min=atand(v_min/u_min);
 
 %Positive compatibility equations
 L_pos=tand(theta_pos+alpha_pos);
+Q_pos=u2^2-a2^2;
+R_pos=2*u2*v2-Q_pos*L_pos;
+S_pos=(a2^2*V2)/y3;
+T_pos=S_pos*(x4-x2)+Q_pos*u2+R_pos*v2;
+u4=((Q_pos*T_pos)-(R_pos*V4^2*(Q_pos^2+R_pos^2)-T_pos^2)^(1/2))/(Q_pos^2+R_pos^2);
+v4=(V4^2-u^2)^(1/2);
+y4=y2-L_pos*x2+L_pos*x4;
+x4=((y3-y4)/L_0)-x3;
+y0=y4;
+x0=x4;
+u0=u4;
+v0=v4;
 
 
 % A_pos=u_pos^2-a_pos^2;
