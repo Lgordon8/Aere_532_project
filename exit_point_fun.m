@@ -22,7 +22,7 @@ atot=sqrt(gamma*R*T);
 %Positive characteritics line
 V4=sqrt(((2*gamma*R*T)/(gamma-1)*(1-(P/Pt)^((gamma-1)/gamma))));%Velocity from Isentropic flow relation at point 4
 V2=sqrt(u2^2+v2^2);%Velocity at point 2
-a2=sqrt(atot-((gamma-1)/2)*V2^2);%Speed of sound at point 2
+a2=sqrt(atot-((gamma-1)*V2^2/2));%Speed of sound at point 2
 M2=V2/a2;
 alpha2=asin(1/M2);
 theta2=atan(v2/u2);
@@ -40,7 +40,7 @@ L0=v3/u3;
 L_pos=tan(theta2+alpha2);
 A_pos=u2^2-a2^2;
 B_pos=2*u2*v2-A_pos*L_pos;
-C_pos=omega*((a2^2*V2)/y3);
+C_pos=(omega*(a2^2*V2))/y2;
 
 %x and y along the streamline
 
@@ -51,7 +51,7 @@ T_pos=C_pos*(x4-x2)+A_pos*u2+B_pos*v2;
 
 %Streamwise and transverse velocities
 u4=((A_pos*T_pos)-(B_pos*V4^2*(A_pos^2+B_pos^2)-T_pos^2)^(1/2))/(A_pos^2+B_pos^2);
-v4=(V4^2-u4^2)^(1/2);
+v4=sqrt((V4^2-u4^2));
 
 exit_point=[x4 y4 u4 v4];
 
