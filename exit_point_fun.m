@@ -22,19 +22,20 @@ atot=sqrt(gamma*R*T);
 %Positive characteritics line
 V4=sqrt(((2*gamma*R*T)/(gamma-1)*(1-(P/Pt)^((gamma-1)/gamma))));%Velocity from Isentropic flow relation at point 4
 V2=sqrt(u2^2+v2^2);%Velocity at point 2
-a2=sqrt(atot-((gamma-1)*V2^2/2));%Speed of sound at point 2
+a2=sqrt(atot-((gamma-1)*V2^2)/2);%Speed of sound at point 2
 M2=V2/a2;
 alpha2=asin(1/M2);
 theta2=atan(v2/u2);
 
 %Negative Characteristic Line
 %V_min=sqrt(((2*gamma*R*T)/(gamma-1)*(1-(P/Pt)^((gamma-1)/gamma))));
-% V3=sqrt(u3^2+v3^2);
-% a3=sqrt(atot^2-(gamma-1)*V3^2/2);
-% M3=V3/a3;
-% alpha3=asind(1/M3);
-% theta3=atand(v3/u3);
-L0=v3/u3;
+V3=sqrt(u3^2+v3^2);
+a3=sqrt(atot-((gamma-1)*V3^2)/2);
+M3=V3/a3;
+alpha3=asind(1/M3);
+theta3=atand(v3/u3);
+L0=tan(theta3-alpha3);
+%L0=v3/u3;
 
 %Positive compatibility equations
 L_pos=tan(theta2+alpha2);
@@ -44,8 +45,11 @@ C_pos=(omega*(a2^2*V2))/y2;
 
 %x and y along the streamline
 
-x4=(y3-L0*x3-y2+L_pos*x2)/L_pos;
-y4=y2-L_pos*x2+L_pos*x4;
+% x4=(y2-L0*x2-y3+L_pos*x3)/L_pos; %modiefied
+% y4=y3-L_pos*x3+L_pos*x4; %modiefied
+
+x4=(y3-L0*x3-y2+L_pos*x2)/L_pos; %Zuckrow derivation
+y4=y2-L_pos*x2+L_pos*x4; %Zucrow derivation
 
 T_pos=C_pos*(x4-x2)+A_pos*u2+B_pos*v2;
 
