@@ -20,9 +20,9 @@ Pt=Patm;
 atot=sqrt(gamma*R*T);
 
 %Positive characteritics line
-V4=sqrt(((2*gamma*R*T)/(gamma-1)*(1-(P/Pt)^((gamma-1)/gamma))));%Velocity from Isentropic flow relation at point 4
-V2=sqrt(u2^2+v2^2);%Velocity at point 2
-a2=sqrt(atot-((gamma-1)*V2^2)/2);%Speed of sound at point 2
+V4=sqrt(( ((2*gamma*R*T)/(gamma-1)) * (1-(P/Pt)^((gamma-1)/gamma)) ));%Velocity from Isentropic flow relation at point 4
+V2=sqrt(u2^2 + v2^2);%Velocity at point 2
+a2=sqrt(atot^2 - ((gamma-1)*V2^2)/2);%Speed of sound at point 2
 M2=V2/a2;
 alpha2=asin(1/M2);
 theta2=atan(v2/u2);
@@ -45,13 +45,13 @@ C_pos=(omega*(a2^2*V2))/y2;
 
 %x and y along the streamline
 
-x4=(L_pos*x2-L0*x3+y3-y2)/(L_pos-L0); %modiefied
+x4=(L_pos*x2 - L0*x3 + y3 - y2)/(L_pos-L0); %modiefied
 %y4=L_pos*(x4-x2)+y2; %modiefied
 
 % x4=(y3-L0*x3-y2+L_pos*x2)/L_pos; %Zuckrow derivation
-y4=y2-L_pos*x2+L_pos*x4; %Zucrow derivation
+y4=y2 - L_pos*x2 + L_pos*x4; %Zucrow derivation
 
-T_pos=C_pos*(x4-x2)+A_pos*u2+B_pos*v2;
+T_pos=C_pos*(x4-x2) + A_pos*u2 + B_pos*v2;
 
 %Streamwise and transverse velocities
 u4=((A_pos*T_pos)-(B_pos*V4^2*(A_pos^2+B_pos^2)-T_pos^2)^(1/2))/(A_pos^2+B_pos^2);
