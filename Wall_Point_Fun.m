@@ -1,4 +1,4 @@
-function Wall_Out=Wall_Point_Fun(plus_in,Pressure,Temperature,R,k,w)
+function Wall_Out=Wall_Point_Fun(plus_in,Pressure,Temperature,R,D1,D2,D3)
 %Notes
 %Point 1 indicates the interior point with + Characteristic line
 %Point 0 indicates the intersection at the wall
@@ -8,6 +8,8 @@ function Wall_Out=Wall_Point_Fun(plus_in,Pressure,Temperature,R,k,w)
 %T is the stagnation temperature
 %k is specific heats ratio
 %R is the gas constant
+k=1.4;  
+w=1;
 
 x1=plus_in(1);
 y1=plus_in(2);
@@ -26,9 +28,6 @@ L1=tan(theta1+alpha1);
 A=u1^2-a1^2;
 B=2*u1*v1-(u1^2-a1^2)*L1;
 C=w*(a1^2)*v1/y1;
-D1=0.019171267034391;
-D2=0.142169804334580;
-D3=-0.071092506542929;
 
 a=D3; b=(D2-L1); c=D1+L1*x1-y1;
 x01=(-b-sqrt(b^2-4*a*c))/(2*a);
