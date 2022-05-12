@@ -1,5 +1,13 @@
 % Test Function
 
+%WARD Test Case:
+plus_in=[2.305789040088670e-04,0.018550430043148,1.125046577143496e+03,1.879466362308684];
+minus_in=[4.667731058659860e-04,0.017751178327034,1.117438195509118e+03,1.726243525338538];
+P =5.0d6; % pa Stag pressure
+T= 1000; %K Stag temperature
+R=287; %J/ KG K 
+gamma=1.4;
+omega=1; 
 %initialize function inputs (will replace with run of IVL code)
 % plus_in=[0.1,0.1,1500,0]; % m ,m , m/s, m/s  %assumed supersonic flow, subsonic was breaking code
 % minus_in=[0.1,0.12,1500,0]; % m ,m , m/s, m/s %assumed supersonic flow, subsonic was breaking code
@@ -9,18 +17,20 @@
 % gamma=1.4;
 % omega=1; %given in project prompt for axisymmetric nozzle
 
-%  Zucrow Test Case Values
-plus_in=[0.275,0.4,3030,430]; % m ,m , m/s, m/s  %assumed supersonic flow, subsonic was breaking code
-minus_in=[0.25,0.5,3000,525]; % m ,m , m/s, m/s %assumed supersonic flow, subsonic was breaking code
-%%  Zucrow Test Case Values
-P =7.0d6; % pa Stag pressure
-T= 3330; %K Stag temperature
-R=320; %J/ KG K 
-gamma=1.2;
-omega=1; %given in project prompt for axisymmetric nozzle
+% %  Zucrow Test Case Values
+% plus_in=[0.275,0.4,3030,430]; % m ,m , m/s, m/s  %assumed supersonic flow, subsonic was breaking code
+% minus_in=[0.25,0.5,3000,525]; % m ,m , m/s, m/s %assumed supersonic flow, subsonic was breaking code
+% %%  Zucrow Test Case Values
+% P =7.0d6; % pa Stag pressure
+% T= 3330; %K Stag temperature
+% R=320; %J/ KG K 
+% gamma=1.2;
+% omega=1; %given in project prompt for axisymmetric nozzle
 
 
-[check(1),check(2),check(3),check(4)]=Interior_Point_Fun(plus_in,minus_in,P,T,R,gamma,omega)
+[check]=Interior_Point_Fun(plus_in,minus_in,P,T,R,gamma,omega)
+
+check2=[1.434879402672728e-03 1.811338917685366e-02 1.121305610189988e+03 1.212584805014567e+01]
 % x_plus=plus_in(1)
 % y_plus=plus_in(2)
 % u_plus=plus_in(3)

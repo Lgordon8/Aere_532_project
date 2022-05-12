@@ -1,4 +1,4 @@
-function[x,y,u,v]= Interior_Point(plus_in,minus_in,P,T,R,gamma,omega)
+function[x_y_u_v]= Interior_Point(plus_in,minus_in,P,T,R,gamma,omega)
 
 %x x coordinate of characteristic line intersection m
 %y y coordinate of characteristic line intersection m
@@ -57,9 +57,5 @@ G=[y_plus-lambda_plus*x_plus; y_minus-lambda_minus*x_minus ; D_plus ; D_minus]  
 F_in=inv(F);
 x_y_u_v=F_in*G;
 
-x=x_y_u_v(1);
-y=x_y_u_v(2);
-u= x_y_u_v(3);
-v= x_y_u_v(4);
 
 end
